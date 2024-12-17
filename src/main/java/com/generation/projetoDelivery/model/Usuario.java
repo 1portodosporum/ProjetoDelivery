@@ -1,10 +1,13 @@
 package com.generation.projetoDelivery.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,6 +42,18 @@ public class Usuario {
 	
 	@Size(min = 4, max = 150)
 	private String endereco;
+	
+	public Pedido getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(Pedido pedido) {
+		this.pedido = pedido;
+	}
+
+	@OneToMany
+	@JsonIgnoreProperties("usuario")
+	private Pedido pedido;
 
 	public Long getId() {
 		return id;

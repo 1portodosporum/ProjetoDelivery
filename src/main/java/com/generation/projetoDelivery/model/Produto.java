@@ -1,9 +1,12 @@
 package com.generation.projetoDelivery.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -30,6 +33,10 @@ public class Produto {
 	@NotNull
 	@Size (min = 3, max = 80, message = "Esse campo deve conter o minimo de 3 e máxima 60 caracteres")
 	private String categoria;
+	
+	@OneToMany
+	@JsonIgnoreProperties("produto")
+	private Pedido pedido;
 
 	public Long getId() {
 		return id;
