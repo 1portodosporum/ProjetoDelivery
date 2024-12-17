@@ -1,6 +1,7 @@
 package com.generation.projetoDelivery.controller;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,8 +21,11 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.projetoDelivery.model.Pedido;
 import com.generation.projetoDelivery.repository.PedidoRepository;
+import com.generation.projetoDelivery.service.PedidoService;
 
 import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/pedidos")
@@ -30,6 +34,9 @@ public class PedidoController {
     
     @Autowired
     private PedidoRepository pedidoRepository;
+
+    @Autowired
+    private PedidoService pedidoService;
     
     @GetMapping
     public ResponseEntity<List<Pedido>> getAll(){
@@ -47,6 +54,12 @@ public class PedidoController {
     public ResponseEntity<List<Pedido>> getByTitulo(@PathVariable String status) {
         return ResponseEntity.ok(pedidoRepository.findAllByStatusContainingIgnoreCase(status));
     }
+
+    // @GetMapping("/valortotal")
+    // public ResponseEntity<List<Map<String, Object>>> getValorTotal(){
+    //     return ResponseEntity.ok(pedidoService.listarPedidos());
+    // }
+    
 
     @PostMapping
     public ResponseEntity<Pedido> post(@Valid @RequestBody Pedido pedido) {
