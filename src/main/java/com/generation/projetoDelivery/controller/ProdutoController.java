@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.http.HttpStatus;
 
 import com.generation.projetoDelivery.repository.ProdutoRepository;
+import com.generation.projetoDelivery.service.ProdutoService;
 
 import jakarta.validation.Valid;
 
@@ -31,6 +32,9 @@ public class ProdutoController {
     
     @Autowired
     private ProdutoRepository produtoRepository;
+
+    @Autowired
+    private ProdutoService produtoService;
     
     @GetMapping
     public ResponseEntity<List<Produto>> getAll(){
@@ -48,7 +52,12 @@ public class ProdutoController {
 	public ResponseEntity<List<Produto>> getByCategoria(@PathVariable String categoria){
 		return ResponseEntity.ok(produtoRepository.findAllByCategoriaContainingIgnoreCase(categoria));
 	}
-    
+
+    @GetMapping("/saudaveis")
+    public ResponseEntity<List<Produto>> getProdutosSaudaveis(){
+        return ResponseEntity.ok(produtoService.buscarProdutosSaudaveis());
+    }
+
     @PostMapping
 	public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
 		return ResponseEntity.status(HttpStatus.CREATED)
