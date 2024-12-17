@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import com.generation.projetoDelivery.model.Usuario;
 import com.generation.projetoDelivery.model.UsuarioLogin;
 import com.generation.projetoDelivery.repository.UsuarioRepository;
+import com.generation.projetoDelivery.security.JwtService;
 
 @Service
 public class UsuarioService {
@@ -21,9 +22,9 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 
-	/*
-	 * @Autowired private JwtService jwtService;
-	 */
+	
+	@Autowired private JwtService jwtService;
+	
 
 	@Autowired
 	private AuthenticationManager authenticationManager;
@@ -80,7 +81,7 @@ public class UsuarioService {
 				usuarioLogin.get().setId(usuario.get().getId());
 				usuarioLogin.get().setNome(usuario.get().getNome());
 				usuarioLogin.get().setFoto(usuario.get().getFoto());
-				//usuarioLogin.get().setToken(gerarToken(usuarioLogin.get().getUsuario()));
+				usuarioLogin.get().setToken(gerarToken(usuarioLogin.get().getUsuario()));
 				usuarioLogin.get().setSenha("");
 
 				// Retorna o Objeto preenchido
@@ -102,9 +103,7 @@ public class UsuarioService {
 
 	}
 
-	/*
-	 * private String gerarToken(String usuario) { return "Bearer " +
-	 * jwtService.generateToken(usuario); }
-	 */
-
+	private String gerarToken(String usuario) { return "Bearer " +
+		jwtService.generateToken(usuario);
+	}
 }

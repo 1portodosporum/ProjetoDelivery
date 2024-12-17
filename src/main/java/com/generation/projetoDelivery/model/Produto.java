@@ -1,5 +1,7 @@
 package com.generation.projetoDelivery.model;
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -12,7 +14,7 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 @Entity
-@Table (name = "tb_produto")
+@Table(name = "tb_produto")
 public class Produto {
 	
 	@Id
@@ -36,7 +38,15 @@ public class Produto {
 	
 	@OneToMany
 	@JsonIgnoreProperties("produto")
-	private Pedido pedido;
+	private List<Pedido> pedido;
+	
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
+	}
 
 	public Long getId() {
 		return id;

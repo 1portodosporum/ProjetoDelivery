@@ -1,6 +1,8 @@
 package com.generation.projetoDelivery.model;
 
 
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Entity;
@@ -42,18 +44,18 @@ public class Usuario {
 	
 	@Size(min = 4, max = 150)
 	private String endereco;
-	
-	public Pedido getPedido() {
-		return pedido;
-	}
-
-	public void setPedido(Pedido pedido) {
-		this.pedido = pedido;
-	}
 
 	@OneToMany
 	@JsonIgnoreProperties("usuario")
-	private Pedido pedido;
+	private List<Pedido> pedido;
+	
+	public List<Pedido> getPedido() {
+		return pedido;
+	}
+
+	public void setPedido(List<Pedido> pedido) {
+		this.pedido = pedido;
+	}
 
 	public Long getId() {
 		return id;
@@ -110,10 +112,4 @@ public class Usuario {
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
 	}
-	
-	
-	
-	
-	
-
 }
