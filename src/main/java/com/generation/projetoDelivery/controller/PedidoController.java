@@ -24,7 +24,6 @@ import com.generation.projetoDelivery.repository.PedidoRepository;
 import com.generation.projetoDelivery.service.PedidoService;
 
 import jakarta.validation.Valid;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -55,17 +54,21 @@ public class PedidoController {
         return ResponseEntity.ok(pedidoRepository.findAllByStatusContainingIgnoreCase(status));
     }
 
-    // @GetMapping("/valortotal")
-    // public ResponseEntity<List<Map<String, Object>>> getValorTotal(){
-    //     return ResponseEntity.ok(pedidoService.listarPedidos());
-    // }
+    @GetMapping("/valortotal")
+    public ResponseEntity<List<Map<String, Object>>> getValorTotal(){
+        return ResponseEntity.ok(pedidoService.listarPedidos());
+    }
     
 
     @PostMapping
     public ResponseEntity<Pedido> post(@Valid @RequestBody Pedido pedido) {
+        // Calcula e atualiza o preco_total antes de salvar
+        Pedido pedidoAtualizado = pedidoService.calcularEAtualizarPrecoTotal(pedido);
+        
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(pedidoRepository.save(pedido));
+                .body(pedidoRepository.save(pedidoAtualizado));
     }
+
 
     @PutMapping
     public ResponseEntity<Pedido> put(@Valid @RequestBody Pedido pedido){
