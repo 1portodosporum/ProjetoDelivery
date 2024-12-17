@@ -19,7 +19,7 @@ import com.generation.projetoDelivery.repository.ProdutoRepository;
 
 import jakarta.validation.Valid;
 
-import com.generation.projetoDelivery.model.Produto; // Import the correct Produto class
+import com.generation.projetoDelivery.model.Produto;
 
 import java.util.List;
 import java.util.Optional;
