@@ -1,5 +1,5 @@
 <div style="text-align: center">
-<a href=""><img src="https://media.discordapp.net/attachments/1302025525421936740/1318950951230505030/Captura_de_tela_2024-12-18_102723.png?ex=6764304b&is=6762decb&hm=5138d3c2bd55f64d211d8ab46accdbf68ae3d0b209422c666dda91c9e228ce78&=&format=webp&quality=lossless" title="Gabriel" width="1012" height="500"></a>
+<a href=""><img src="https://github.com/1portodosporum/ProjetoDelivery/blob/main/linkfiles/groot.webp" title="Gabriel" width="1012" height="500"></a>
 </div>
 
 ## Sistema de Gerenciamento de entregas Delivery. 
@@ -10,8 +10,8 @@
 <table>
     <tr>
         <th style="width:35%; font-size:20px;"><a href="https://projetodelivery.onrender.com">✨ Deploy / AiCRUD 🚀</a></th>
-	    <th style="width:35%; font-size:20px;"><a href="https://docs.google.com/document/d/1EuzOoA3g9rJgSfKTIItA7iygb5eDrdfWsvq9psoOQHw/edit?tab=t.0">📑 Escopo do Projeto </a></th>
-        <th style="width:35%; font-size:20px;"><a href="https://cdn.discordapp.com/attachments/1311368628448530483/1318940537583173713/Projeto_Delivery.pdf?ex=67642698&is=6762d518&hm=cc668d5b02a5c85e44bcbb6d8a904e5f455c33d75f867c635e62ae03884e0c48&">🧩 SpringDoc </a></th>
+	    <th style="width:35%; font-size:20px;"><a href="https://github.com/1portodosporum/ProjetoDelivery/blob/main/linkfiles/Escopo_do_Projeto%20-%20(Grupo%201).pdf">📑 Escopo do Projeto </a></th>
+        <th style="width:35%; font-size:20px;"><a href="https://github.com/1portodosporum/ProjetoDelivery/blob/main/linkfiles/Projeto%20Delivery.pdf">🧩 SpringDoc </a></th>
     </tr>
 </table>
 
@@ -19,7 +19,7 @@
 
 > __Sobre o modelo, utilizamos relacionamento  bidirecional entre três entidades de pedido e produto além da de usuário onde é identificado e autenticado  o cliente usando o JWT.__
 >
-> <a href=""><img src="https://cdn.discordapp.com/attachments/1311368628448530483/1318564358527385660/image.png?ex=676419c0&is=6762c840&hm=b6bb4243cbdd2c4da9c14298f13ab1abceb68170af22453a690dae198db9a46b&" title="DER" width="600"></a>
+> <a href=""><img src="https://github.com/1portodosporum/ProjetoDelivery/blob/main/linkfiles/der.png" title="DER" width="600"></a>
 >
 > *DER AiCRUD*
 
