@@ -35,7 +35,9 @@ public class Produto {
 	@NotNull
 	@Size (min = 3, max = 80, message = "Esse campo deve conter o minimo de 3 e máxima 60 caracteres")
 	private String categoria;
-	
+
+	private String imagem;
+
 	@OneToMany
 	@JsonIgnoreProperties("produto")
 	private List<Pedido> pedido;
@@ -94,6 +96,14 @@ public class Produto {
 
 	public void setCategoria(String categoria) {
 		this.categoria = categoria;
-	} 
+	}
+
+	public String getImagem() {
+		return imagem;
+	}
+
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 	
 }
